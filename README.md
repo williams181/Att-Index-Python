@@ -4,7 +4,7 @@
 
 # docker build -t william-python . 
 
-# docker run --name william -p 4000:4000 william-python
+# docker run --name william2 -p 80:80 william-python
 
-# docker start william
+# docker start william2
 
