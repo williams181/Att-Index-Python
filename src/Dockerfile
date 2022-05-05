@@ -1,5 +1,7 @@
 FROM  python:3.8
 
+COPY . .
+
 RUN apt-get update && apt-get install -y default-jre
 RUN apt-get install -y build-essential libpoppler-cpp-dev pkg-config
 RUN apt-get install -y locales
@@ -17,8 +19,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 RUN pip install gunicorn
-
-COPY . .
 
 EXPOSE 4000
 # CMD python webserver.py
