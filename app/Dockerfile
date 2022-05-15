@@ -20,6 +20,6 @@ RUN pip install gunicorn
 
 COPY . .
 
-EXPOSE 80
+EXPOSE 5000
 # CMD python main.py
-CMD /usr/local/bin/gunicorn --bind 0.0.0.0:80 main:app
+CMD /usr/local/bin/gunicorn --bind 0.0.0.0:5000 app:app

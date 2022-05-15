@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Declare a flask app
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/myflask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost:3306/myflask'
 
 db = SQLAlchemy(app)
 
@@ -13,7 +13,7 @@ class Funcionario(db.Model):
 
     _id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(50))
-    email = db.Column(db.String(100))
+    email = db.Column(db.String(50))
 
     def __init__(self, nome, email):
         self.nome = nome
@@ -84,4 +84,4 @@ if __name__ == '__main__':
     print('Running...')
     print('='*50)
 
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
