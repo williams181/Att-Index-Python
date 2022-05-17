@@ -5,7 +5,7 @@ import pymysql
 # Declare a flask app
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost:3306/myflask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:12345678@att-index-python_db_1:3306/myflask'
 
 db = SQLAlchemy(app)
 
