@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
+import pymysql
 
 # Declare a flask app
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
@@ -13,7 +14,7 @@ class Funcionario(db.Model):
 
     _id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(50))
-    email = db.Column(db.String(50))
+    email = db.Column(db.String(100))
 
     def __init__(self, nome, email):
         self.nome = nome
