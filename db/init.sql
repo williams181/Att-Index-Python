@@ -1,2 +1,2 @@
-create database myflask;
+CREATE DATABASE [IF NOT EXISTS] myflask;
 use myflask;
