@@ -5,9 +5,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: "myflask"
-      MYSQL_PASSWORD: "1234"
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
   app:
@@ -16,3 +15,4 @@ services:
       - db
     ports:
       - "5000:5000"
+    depends_on: db
