@@ -1,6 +1,10 @@
-# sistemas distribuidos Atividade extra
+# sistemas distribuidos Atividade crud
 
 # docker commands 
+
+# docker-compose up -d
+
+# Comandos opcionais 
 
 # docker build -t william-python . 
 
@@ -8,5 +12,5 @@
 
 # docker start william2
 
-# docker-compose up -d
+
 
