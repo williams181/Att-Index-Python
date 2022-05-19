@@ -6,7 +6,7 @@ import pymysql
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
 
 # estabelece as configurações com o mysql 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@att-index-python_db_1:3306/myflask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@att-index-python_db_1:3306/myflask'
 
 db = SQLAlchemy(app)
 
@@ -14,15 +14,15 @@ db = SQLAlchemy(app)
 class Funcionario(db.Model):
     __tablename__='funcionario'
 
-    # _id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    # nome = db.Column(db.String(50))
-    # email = db.Column(db.String(100))
+    _id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(50))
+    email = db.Column(db.String(100))
 
     def __init__(self, nome, email):
         self.nome = nome
         self.email = email
 
-# db.create_all()
+db.create_all()
 
 # exibe a pagina inicial
 @app.route('/')
