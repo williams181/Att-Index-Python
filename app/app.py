@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
+from app import db
 
 # Declara o flask app
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
@@ -21,7 +22,7 @@ class Funcionario(db.Model):
     def __init__(self, nome, email):
         self.nome = nome
         self.email = email
-
+       
 db.create_all()
 
 # exibe a pagina inicial
