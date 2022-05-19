@@ -1,13 +1,14 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, redirect, url_for, request, render_template, make_response, session, abort, flash
 from flask_sqlalchemy import SQLAlchemy
-import pymysql
-from app import db
+from flask import render_template
 
 # Declara o flask app
-app = Flask(__name__, template_folder='./templates', static_folder='./static')
+app = Flask(__name__, template_folder='./templates')
+
+app.secret_key = 'ABCDDD123'
 
 # estabelece as configurações com o mysql 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@att-index-python_db_1:3306/myflask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://william:1234will@db/myflask'
 
 db = SQLAlchemy(app)
 
@@ -17,7 +18,7 @@ class Funcionario(db.Model):
 
     _id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(50))
-    email = db.Column(db.String(100))
+    email = db.Column(db.String(500))
 
     def __init__(self, nome, email):
         self.nome = nome
@@ -90,9 +91,4 @@ def atualizar(id):
 
 # executa a aplicação
 if __name__ == '__main__':
-
-    print('='*50)
-    print('Running...')
-    print('='*50)
-
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', debug=True)

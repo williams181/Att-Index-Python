@@ -1,26 +1,20 @@
-version: "3.9"
+version: "3"
 services:
   app:
     build: ./app
-    networks:
-      - backend
     links:
       - db
     ports:
       - "5000:5000"
-    depends_on: db
 
   db:
     image: mysql:5.7
-    networks:
-      - backend
     ports:
-      - "3306:3306"
+      - "32000:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: myflask
+      MYSQL_USER: william
+      MYSQL_PASSWORD: 1234will
     volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro 
-
-networks:
-    backend:
-        driver: bridge
+      - ./docker/data/db:/var/lib/mysql
