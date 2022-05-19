@@ -1,4 +1,11 @@
 version: "3"
+  app:
+    build: ./app
+    links:
+      - db
+    ports:
+      - "5000:5000"
+    depends_on: db
 services:
   db:
     image: mysql:5.7
@@ -9,10 +16,4 @@ services:
       MYSQL_DATABASE: "myflask"
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
-  app:
-    build: ./app
-    links:
-      - db
-    ports:
-      - "5000:5000"
-    depends_on: db
+
