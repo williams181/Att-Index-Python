@@ -26,7 +26,7 @@ class Funcionario(db.Model):
        
 db.create_all()
 
-# exibe a pagina inicial
+# exibe a pagina inicial.
 @app.route('/')
 def index():
     
